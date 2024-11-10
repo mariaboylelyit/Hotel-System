@@ -18,3 +18,4 @@ public interface Payable {
 // methods, i.e. methods without a body & constants
 // It describes WHAT an implementing class will do,
 // not HOW it will do it.
+//
