@@ -25,11 +25,23 @@ public class RoomTester {
 		catch(IllegalArgumentException e) {
 			System.out.println("Invalid details when creating Room.");
 		}
+			
+		// Display all the Rooms in the rooms ArrayList.
+		for(Room tmpRoom : rooms)
+			System.out.println(tmpRoom);
 		
-		
-		// Display all the Rooms in the rooms ArrayList. 
-		
+		System.out.println("\n");
 		// Display all the FAMILY Rooms in the rooms ArrayList, with a count
+		int count=0;
+		for(Room tmpRoom : rooms)
+		{
+			if(tmpRoom.getRoomType().equalsIgnoreCase("FAMILY")) {
+				System.out.println(tmpRoom);
+				count++;
+			}
+		}
+		System.out.println("There are " + count + " FAMILY Rooms.");
+		
     }
 	
 }
