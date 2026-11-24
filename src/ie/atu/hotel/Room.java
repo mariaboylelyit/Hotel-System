@@ -24,11 +24,12 @@ public class Room{
     private boolean allocated;
     
     private static int nextRoomNumber=101;
+    private final double MINRATE = 180;
 
 	public Room(String roomType, double nightlyRate)
 	{
-		this.roomType=roomType;
-		this.nightlyRate=nightlyRate;
+		setRoomType(roomType);
+		setNightlyRate(nightlyRate);
 		this.allocated=false;
 		this.roomNumber=nextRoomNumber++;
 	}
@@ -52,10 +53,19 @@ public class Room{
     // You shouldn't be able to setNumber() as it is unique, 
     // so don't provide a setNumber() method
     
-    public void setRoomType(String roomType){
+    public void setRoomType(String roomType) throws IllegalArgumentException{
+    	if(!roomType.equalsIgnoreCase("DOUBLE") && 
+    	   !roomType.equalsIgnoreCase("FAMILY") &&
+    	   !roomType.equalsIgnoreCase("KING"))
+    		throw new IllegalArgumentException("Room Type must be Double, Family or King");
+    	
         this.roomType=roomType;
     }
-    public void setNightlyRate(double nightlyRate){
+
+    public void setNightlyRate(double nightlyRate) throws IllegalArgumentException{
+    	if(nightlyRate < MINRATE)
+    		throw new IllegalArgumentException("Rate must be " + MINRATE + " or greater.");
+    		
         this.nightlyRate=nightlyRate;
     }
     public void setAllocated(boolean allocated) {
