@@ -22,10 +22,16 @@ public class Room{
     private String roomType;
     private double nightlyRate;
     private boolean allocated;
+    
+    private static int nextRoomNumber=101;
 
-    /**************************/
-    /* TODO-WRITE CONSTRUCTOR */
-    /**************************/
+	public Room(String roomType, double nightlyRate)
+	{
+		this.roomType=roomType;
+		this.nightlyRate=nightlyRate;
+		this.allocated=false;
+		this.roomNumber=nextRoomNumber++;
+	}
 	
     @Override
     public String toString() {
